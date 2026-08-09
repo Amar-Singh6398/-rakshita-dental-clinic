@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+:root {
+  --blue: #0000ee;
+  --yellow: #ffde00;
+}
+
+.font-poppins {
+  font-family: "Poppins", sans-serif;
+}
+.font-inter {
+  font-family: "Inter", sans-serif;
+}
+.bg-blue {
+  background-color: #0000ee;
+}
+.text-blue {
+  color: #0000ee;
+}
+.bg-yellow {
+  background-color: #ffde00;
+}
+.text-yellow {
+  color: #ffde00;
+}
+.border-blue {
+  border-color: #0000ee;
+}
+.border-yellow {
+  border-color: #ffde00;
+}
+.ring-yellow:focus {
+  outline: 2px solid #ffde00;
+  outline-offset: 2px;
+}
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 238, 0.12);
+}
+.gallery-item img {
+  transition: transform 0.35s ease;
+}
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #ffde00;
+  transition: width 0.2s;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+html {
+  scroll-behavior: smooth;
+}
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 238, 0.3);
+  border-radius: 3px;
+}
+.hero-gradient {
+  background: linear-gradient(135deg, #f0f4ff 0%, #ffffff 60%, #fffde0 100%);
+}
+.section-tag {
+  display: inline-block;
+  background: #ffde00;
+  color: #1a1a1a;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+  font-family: "Inter", sans-serif;
+}
