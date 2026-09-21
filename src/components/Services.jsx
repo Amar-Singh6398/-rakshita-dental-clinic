@@ -1,6 +1,9 @@
+import { useState } from "react";
 import { SERVICES } from "../data/content";
 
 export default function Services() {
+  const [activeCard, setActiveCard] = useState(null);
+
   return (
     <section id="services" className="py-20 bg-[#f7f8fa]">
       <div className="max-w-7xl mx-auto px-5">
@@ -22,10 +25,13 @@ export default function Services() {
         {/* Services Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
 
-          {SERVICES.map(({ icon: Icon, name, desc, image }) => (
+          {SERVICES.map(({ icon: Icon, name, desc, image }, index) => (
 
             <div
               key={name}
+              onClick={() =>
+                setActiveCard(activeCard === index ? null : index)
+              }
               className="
                 service-card
                 group
@@ -49,7 +55,7 @@ export default function Services() {
               ========================= */}
 
               <div
-                className="
+                className={`
                   service-content
                   absolute
                   inset-0
@@ -64,9 +70,14 @@ export default function Services() {
                   transition-all
                   duration-700
                   ease-[cubic-bezier(.22,.61,.36,1)]
-                  group-hover:-translate-y-10
-                  group-hover:opacity-0
-                "
+                  ${
+                    activeCard === index
+                      ? "-translate-y-10 opacity-0"
+                      : "translate-y-0 opacity-100"
+                  }
+                  md:group-hover:-translate-y-10
+                  md:group-hover:opacity-0
+                `}
               >
 
                 {/* Icon */}
@@ -82,7 +93,7 @@ export default function Services() {
                     mb-5
                     transition-all
                     duration-500
-                    group-hover:-translate-y-4
+                    md:group-hover:-translate-y-4
                   "
                 >
                   <Icon className="w-6 h-6 text-[#1a1a1a]" />
@@ -123,16 +134,20 @@ export default function Services() {
 
               {image && (
                 <div
-                  className="
+                  className={`
                     absolute
                     inset-0
                     z-20
-                    translate-y-[103%]
-                    group-hover:translate-y-0
                     transition-transform
                     duration-700
                     ease-[cubic-bezier(.22,.61,.36,1)]
-                  "
+                    ${
+                      activeCard === index
+                        ? "translate-y-0"
+                        : "translate-y-[103%]"
+                    }
+                    md:group-hover:translate-y-0
+                  `}
                 >
 
                   {/* Image */}
@@ -146,7 +161,7 @@ export default function Services() {
                       h-full
                       object-cover
                       scale-105
-                      group-hover:scale-100
+                      md:group-hover:scale-100
                       transition-transform
                       duration-1000
                       ease-out
@@ -167,7 +182,7 @@ export default function Services() {
 
                   {/* Image Bottom Content */}
                   <div
-                    className="
+                    className={`
                       absolute
                       left-5
                       right-5
@@ -176,14 +191,17 @@ export default function Services() {
                       items-center
                       justify-between
                       text-white
-                      translate-y-4
-                      opacity-0
-                      group-hover:translate-y-0
-                      group-hover:opacity-100
                       transition-all
                       duration-500
                       delay-300
-                    "
+                      ${
+                        activeCard === index
+                          ? "translate-y-0 opacity-100"
+                          : "translate-y-4 opacity-0"
+                      }
+                      md:group-hover:translate-y-0
+                      md:group-hover:opacity-100
+                    `}
                   >
 
                     <div>
@@ -195,35 +213,39 @@ export default function Services() {
                         Explore our treatment
                       </p>
                     </div>
-<button
-  type="button"
-  onClick={(e) => {
-    e.stopPropagation();
-    document.getElementById("contact")?.scrollIntoView({
-      behavior: "smooth",
-    });
-  }}
-  className="
-    w-9
-    h-9
-    rounded-full
-    bg-white/15
-    backdrop-blur-sm
-    border
-    border-white/30
-    flex
-    items-center
-    justify-center
-    cursor-pointer
-    hover:bg-[#FFDE00]
-    hover:text-[#1a1a1a]
-    transition-all
-    duration-300
-  "
-  aria-label={`Book ${name}`}
->
-  <span className="text-lg">→</span>
-</button>
+
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+
+                        document
+                          .getElementById("contact")
+                          ?.scrollIntoView({
+                            behavior: "smooth",
+                          });
+                      }}
+                      className="
+                        w-9
+                        h-9
+                        rounded-full
+                        bg-white/15
+                        backdrop-blur-sm
+                        border
+                        border-white/30
+                        flex
+                        items-center
+                        justify-center
+                        cursor-pointer
+                        hover:bg-[#FFDE00]
+                        hover:text-[#1a1a1a]
+                        transition-all
+                        duration-300
+                      "
+                      aria-label={`Book ${name}`}
+                    >
+                      <span className="text-lg">→</span>
+                    </button>
 
                   </div>
 
