@@ -52,14 +52,14 @@ export default function Hero({ scrollTo }) {
                 <Star key={i} className="w-3.5 h-3.5 fill-[#FFDE00] text-[#FFDE00]" />
               ))}
             </div>
-            <span className="font-inter text-xs font-semibold text-[#1a1a1a]">4.9 — 89 Google Reviews</span>
+            <span className="font-inter text-xs font-semibold text-[#1a1a1a]">4.9 — 100+ Google Reviews</span>
           </div>
 
           <h1 className="font-poppins font-bold text-[2.6rem] md:text-[3.2rem] leading-[1.15] text-[#1a1a1a] mb-4">
             Advanced Dental Care <span className="text-[#0000EE]">You Can Trust</span>
           </h1>
           <p className="font-inter text-base md:text-lg text-[#4a4a4a] mb-8 max-w-md leading-relaxed">
-            Dr. Tanu — Specialist in Advanced Endodontics.{" "}
+            Dr. Tanu — Specialist in Advanced Micro Endodontics.{" "}   <br />
             <span className="font-medium text-[#1a1a1a]">{CLINIC.name}, Haldwani</span>
           </p>
 
@@ -131,7 +131,7 @@ export default function Hero({ scrollTo }) {
               <Smile className="w-5 h-5 text-white" />
             </div>
             <div>
-              <p className="font-poppins font-bold text-[#0000EE] text-lg leading-none">89+</p>
+              <p className="font-poppins font-bold text-[#0000EE] text-lg leading-none">100+</p>
               <p className="font-inter text-xs text-[#4a4a4a] mt-0.5">Happy Patients</p>
             </div>
           </div>

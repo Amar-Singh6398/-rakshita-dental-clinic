@@ -3,7 +3,7 @@ import { CLINIC } from "../data/content";
 import tanu from"../assets/Dr tanu.webp";
 
 const STATS = [
-  { stat: "89+", label: "Happy Patients" },
+  { stat: "100+", label: "Happy Patients" },
   { stat: "4.9★", label: "Google Rating" },
   { stat: "RCT", label: "Root Canal Expert" },
 ];
