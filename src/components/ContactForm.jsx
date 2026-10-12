@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MapPin, Clock, Phone, MessageCircle, CheckCircle } from "lucide-react";
+import { MapPin, Clock, Phone, MessageCircle, CheckCircle, Mail } from "lucide-react";
 import { CLINIC, QUERY_OPTIONS } from "../data/content";
 
 export default function ContactForm() {
@@ -102,6 +102,35 @@ const handleSubmit = async (e) => {
                 <p className="font-inter text-sm text-[#4a4a4a] mt-0.5">{CLINIC.hours}</p>
               </div>
             </div>
+
+       {/* Email Addresses */}
+<div className="flex items-start gap-3">
+  <div className="w-9 h-9 bg-[#FFDE00] rounded-full flex items-center justify-center shrink-0 mt-0.5">
+    <Mail className="w-4 h-4 text-[#1a1a1a]" />
+  </div>
+
+  <div className="min-w-0">
+    <p className="font-inter font-medium text-sm text-[#1a1a1a]">
+      Email Address
+    </p>
+
+    <div className="flex flex-col gap-1 mt-1">
+      <a
+        href="mailto:drsainisinghtanu543@gmail.com"
+        className="font-inter text-sm text-[#4a4a4a] hover:text-[#0000EE] transition-colors break-all"
+      >
+        drsainisinghtanu543@gmail.com
+      </a>
+
+      <a
+        href="mailto:rakshitadentalcare543@gmail.com"
+        className="font-inter text-sm text-[#4a4a4a] hover:text-[#0000EE] transition-colors break-all"
+      >
+        rakshitadentalcare543@gmail.com
+      </a>
+    </div>
+  </div>
+</div>
           </div>
         </div>
 
