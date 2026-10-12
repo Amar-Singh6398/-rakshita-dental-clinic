@@ -24,236 +24,101 @@ export default function Services() {
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+{SERVICES.map(({ icon: Icon, name, desc, image }, index) => (
+  <div
+    key={name}
+    className="
+      service-card group relative overflow-hidden
+      rounded-2xl border border-[rgba(0,0,0,0.06)]
+      cursor-pointer h-[360px] shadow-sm
+      hover:shadow-xl transition-shadow duration-500
+      bg-white
+    "
+  >
+    {/* Background Image — Always Visible */}
+    {image && (
+      <img
+        src={image}
+        alt={name}
+        className="
+          absolute inset-0 w-full h-full object-cover
+          transition-transform duration-700 ease-out
+          group-hover:scale-105
+        "
+      />
+    )}
 
-          {SERVICES.map(({ icon: Icon, name, desc, image }, index) => (
+    {/* Dark Overlay */}
+    <div
+      className="
+        absolute inset-0
+        bg-gradient-to-t from-[#081b41]/90
+        via-[#081b41]/20 to-transparent
+        opacity-70 group-hover:opacity-100
+        transition-opacity duration-500
+      "
+    />
 
-            <div
-              key={name}
-              onClick={() =>
-                setActiveCard(activeCard === index ? null : index)
-              }
-              className="
-                service-card
-                group
-                relative
-                overflow-hidden
-                bg-white
-                rounded-2xl
-                border
-                border-[rgba(0,0,0,0.06)]
-                cursor-pointer
-                h-[360px]
-                shadow-sm
-                hover:shadow-xl
-                transition-shadow
-                duration-500
-              "
-            >
+    {/* Default Service Name — Visible Initially */}
+    <div
+      className="
+        absolute inset-x-0 bottom-0 p-5 z-10
+        text-white
+        transition-all duration-500
+        group-hover:-translate-y-2
+        group-hover:opacity-0
+      "
+    >
+      <h3 className="font-poppins font-semibold text-lg">
+        {name}
+      </h3>
+    </div>
 
-              {/* =========================
-                  NORMAL CONTENT
-              ========================= */}
+    {/* Hover Content — No New Image */}
+    <div
+      className="
+        absolute inset-x-0 bottom-0 z-20 p-5
+        flex items-end justify-between gap-3
+        text-white
+        translate-y-5 opacity-0
+        group-hover:translate-y-0
+        group-hover:opacity-100
+        transition-all duration-500 ease-out
+      "
+    >
+      <div className="min-w-0">
+        <h3 className="font-poppins font-semibold text-lg">
+          {name}
+        </h3>
 
-              <div
-                className={`
-                  service-content
-                  absolute
-                  inset-0
-                  z-10
-                  flex
-                  flex-col
-                  items-center
-                  justify-center
-                  text-center
-                  p-6
-                  bg-white
-                  transition-all
-                  duration-700
-                  ease-[cubic-bezier(.22,.61,.36,1)]
-                  ${
-                    activeCard === index
-                      ? "-translate-y-10 opacity-0"
-                      : "translate-y-0 opacity-100"
-                  }
-                  md:group-hover:-translate-y-10
-                  md:group-hover:opacity-0
-                `}
-              >
+        <p className="font-inter text-xs text-white/75 mt-1">
+          Explore our treatment
+        </p>
+      </div>
 
-                {/* Icon */}
-                <div
-                  className="
-                    w-14
-                    h-14
-                    bg-[#FFDE00]
-                    rounded-2xl
-                    flex
-                    items-center
-                    justify-center
-                    mb-5
-                    transition-all
-                    duration-500
-                    md:group-hover:-translate-y-4
-                  "
-                >
-                  <Icon className="w-6 h-6 text-[#1a1a1a]" />
-                </div>
-
-                {/* Title */}
-                <h3
-                  className="
-                    font-poppins
-                    font-semibold
-                    text-[#1a1a1a]
-                    text-lg
-                    mb-2
-                  "
-                >
-                  {name}
-                </h3>
-
-                {/* Description */}
-                <p
-                  className="
-                    font-inter
-                    text-[#4a4a4a]
-                    text-sm
-                    leading-relaxed
-                    max-w-[240px]
-                  "
-                >
-                  {desc}
-                </p>
-
-              </div>
-
-
-              {/* =========================
-                  IMAGE LAYER
-              ========================= */}
-
-              {image && (
-                <div
-                  className={`
-                    absolute
-                    inset-0
-                    z-20
-                    transition-transform
-                    duration-700
-                    ease-[cubic-bezier(.22,.61,.36,1)]
-                    ${
-                      activeCard === index
-                        ? "translate-y-0"
-                        : "translate-y-[103%]"
-                    }
-                    md:group-hover:translate-y-0
-                  `}
-                >
-
-                  {/* Image */}
-                  <img
-                    src={image}
-                    alt={name}
-                    className="
-                      absolute
-                      inset-0
-                      w-full
-                      h-full
-                      object-cover
-                      scale-105
-                      md:group-hover:scale-100
-                      transition-transform
-                      duration-1000
-                      ease-out
-                    "
-                  />
-
-                  {/* Gradient */}
-                  <div
-                    className="
-                      absolute
-                      inset-0
-                      bg-gradient-to-t
-                      from-[#081b41]/80
-                      via-[#081b41]/20
-                      to-transparent
-                    "
-                  />
-
-                  {/* Image Bottom Content */}
-                  <div
-                    className={`
-                      absolute
-                      left-5
-                      right-5
-                      bottom-5
-                      flex
-                      items-center
-                      justify-between
-                      text-white
-                      transition-all
-                      duration-500
-                      delay-300
-                      ${
-                        activeCard === index
-                          ? "translate-y-0 opacity-100"
-                          : "translate-y-4 opacity-0"
-                      }
-                      md:group-hover:translate-y-0
-                      md:group-hover:opacity-100
-                    `}
-                  >
-
-                    <div>
-                      <p className="font-poppins font-semibold text-sm">
-                        {name}
-                      </p>
-
-                      <p className="font-inter text-xs text-white/75 mt-1">
-                        Explore our treatment
-                      </p>
-                    </div>
-
-                    <button
-                      type="button"
-                      onClick={(e) => {
-                        e.stopPropagation();
-
-                        document
-                          .getElementById("contact")
-                          ?.scrollIntoView({
-                            behavior: "smooth",
-                          });
-                      }}
-                      className="
-                        w-9
-                        h-9
-                        rounded-full
-                        bg-white/15
-                        backdrop-blur-sm
-                        border
-                        border-white/30
-                        flex
-                        items-center
-                        justify-center
-                        cursor-pointer
-                        hover:bg-[#FFDE00]
-                        hover:text-[#1a1a1a]
-                        transition-all
-                        duration-300
-                      "
-                      aria-label={`Book ${name}`}
-                    >
-                      <span className="text-lg">→</span>
-                    </button>
-
-                  </div>
-
-                </div>
-              )}
-
-            </div>
-          ))}
+      <button
+        type="button"
+        onClick={(e) => {
+          e.stopPropagation();
+          document.getElementById("contact")?.scrollIntoView({
+            behavior: "smooth",
+          });
+        }}
+        className="
+          shrink-0 w-10 h-10 rounded-full
+          bg-white/15 backdrop-blur-sm
+          border border-white/30
+          flex items-center justify-center
+          hover:bg-[#FFDE00] hover:text-[#1a1a1a]
+          transition-all duration-300
+        "
+        aria-label={`Book ${name}`}
+      >
+        <span className="text-lg">→</span>
+      </button>
+    </div>
+  </div>
+))}
 
         </div>
       </div>
