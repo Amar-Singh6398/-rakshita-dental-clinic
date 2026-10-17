@@ -103,8 +103,6 @@ export const GALLERY = [
   { url: assets.img6, alt: "our happy clients", tall: true },
    { url: assets.img3, alt: "our happy clients", tall: true },
   { url: assets.img4, alt: "our happy clients", tall: true },
-  { url: assets.img9, alt: "our happy clients", tall: true },
-  { url: assets.img10, alt: "our happy clients", tall: true },
   { url: assets.clinic1, alt: "Dental clinic", tall: true },
   { url: assets.clinic2, alt: "Modern dental treatment chair", tall: false },
   { url: assets.clinic3, alt: "Dental equipment and tools", tall: false },
